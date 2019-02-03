@@ -1,0 +1,11 @@
+name=feh
+version=3.1.1
+release=1
+source=(https://$name.finalrewind.org/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	make
+	make PREFIX=/usr/local DESTDIR=$PKG install
+	rm -rf $PKG/usr/local/share/{applications,doc,icons,feh}
+}

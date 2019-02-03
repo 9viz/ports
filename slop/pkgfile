@@ -1,0 +1,12 @@
+name=slop
+version=7.4
+release=1
+
+source=(https://github.com/naelstrof/$name/archive/v$version.tar.gz)
+
+build() {
+    cd $name-$version
+    cmake -DCMAKE_INSTALL_PREFIX='/usr/local' ./
+    make
+    make DESTDIR=$PKG install
+}

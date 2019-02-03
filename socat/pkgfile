@@ -1,0 +1,12 @@
+name=socat
+version=1.7.3.2
+release=1
+
+source=(http://www.dest-unreach.org/socat/download/socat-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure
+    make
+    make PREFIX=/usr/local DESTDIR=$PKG install
+}

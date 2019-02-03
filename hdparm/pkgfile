@@ -1,0 +1,11 @@
+name=hdparm
+version=9.58
+release=1
+
+source=(https://excellmedia.dl.sourceforge.net/project/$name/$name/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    make
+    make PREFIX=/usr/local DESTDIR=$PKG sbindir=/usr/local/bin man=/usr/man install
+}

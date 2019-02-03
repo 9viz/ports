@@ -1,0 +1,12 @@
+name=hsetroot
+version=master
+release=1
+
+source=(https://github.com/himdel/$name/archive/$version.zip)
+
+build() {
+    cd $name-$version
+    sed -i 's|install -st /usr/local/bin/ hsetroot|install -D hsetroot ${DESTDIR}/usr/local/bin/hsetroot|' "Makefile"
+    make
+    make DESTDIR=$PKG install
+}

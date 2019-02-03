@@ -1,0 +1,28 @@
+diff --git a/conf.h b/conf.h
+index 3f365b5..fe11679 100644
+--- a/conf.h
++++ b/conf.h
+@@ -112,7 +112,7 @@ typedef struct
+ 
+ #define DEFAULT_STYLE "default"
+ #define DEFAULT_CONFIG_APPNAME "xob"
+-#define DEFAULT_CONFIG_FILENAME "styles.cfg"
++#define DEFAULT_CONFIG_FILENAME "xobrc"
+ 
+ Style parse_style_config(FILE *filename, const char *stylename,
+                          Style default_style);
+diff --git a/main.c b/main.c
+index 476c902..34d8fb5 100644
+--- a/main.c
++++ b/main.c
+@@ -114,8 +114,8 @@ int main(int argc, char *argv[])
+     /* Case #2: the XDG_CONFIG_HOME environment variable is set */
+     if (config_file == NULL && getenv("XDG_CONFIG_HOME") != NULL)
+     {
+-        if (snprintf(xdg_config_file_path, PATH_MAX, "%s/%s/%s",
+-                     getenv("XDG_CONFIG_HOME"), DEFAULT_CONFIG_APPNAME,
++        if (snprintf(xdg_config_file_path, PATH_MAX, "%s/%s",
++                     getenv("XDG_CONFIG_HOME"),
+                      DEFAULT_CONFIG_FILENAME) < PATH_MAX)
+         {
+             if (realpath(xdg_config_file_path, real_config_file_path) != NULL)

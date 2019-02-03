@@ -1,0 +1,10 @@
+name=wmutils-core
+version=1.4
+release=1
+source=(https://github.com/wmutils/core/archive/v$version.tar.gz)
+
+build() {
+    cd core-$version
+    make
+    make PREFIX=/usr/local MANDIR=/usr/man DESTDIR=$PKG install
+}

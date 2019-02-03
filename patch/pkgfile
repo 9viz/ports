@@ -1,0 +1,11 @@
+name=patch
+version=2.7.6
+release=1
+source=(ftp://ftp.gnu.org/gnu/patch/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr/local
+    make
+    make DESTDIR=$PKG install
+}

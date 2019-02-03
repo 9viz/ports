@@ -1,0 +1,13 @@
+name=fff
+version=1.7
+release=1
+
+source=(https://github.com/dylanaraps/$name/archive/$version.tar.gz)
+
+build() {
+    cd $name-$version
+    mkdir -p $PKG/usr/{local/bin,man}
+    cp fff $PKG/usr/local/bin
+    mkdir -p $PKG/usr/man/man1
+    cp fff.1 $PKG/usr/man/man1/fff.1
+}
