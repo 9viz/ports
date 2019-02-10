@@ -6,5 +6,5 @@ source=(https://github.com/wmutils/core/archive/v$version.tar.gz)
 build() {
     cd core-$version
     make
-    make PREFIX=/usr/local MANDIR=/usr/man DESTDIR=$PKG install
+    make PREFIX=/usr/local MANPREFIX=/usr/man DESTDIR=$PKG install
 }
