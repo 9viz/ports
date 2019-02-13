@@ -1,5 +1,5 @@
 name=fff
-version=1.7
+version=2.1
 release=1
 
 source=(https://github.com/dylanaraps/$name/archive/$version.tar.gz)
