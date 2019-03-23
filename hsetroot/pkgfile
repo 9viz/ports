@@ -1,6 +1,6 @@
 name=hsetroot
 version=master
-release=1
+release=2
 
 source=(https://github.com/himdel/$name/archive/$version.zip)
 

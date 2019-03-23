@@ -1,11 +1,12 @@
 name=bar
 version=xft-port
-release=1
+release=2
 
 source=(https://github.com/vizs/$name/archive/$version.zip)
 
 build() {
     cd $name-$version
+    cp $PKGMK_ROOT/Makefile ./
     make
     make PREFIX=/usr/local DESTDIR=$PKG install
 }
