@@ -1,0 +1,14 @@
+#!/bin/sh
+
+clean() {
+    for i in ${1}/*; do
+        [ -d ${i} ] && clean ${i}
+        [ -f ${i} ] && {
+            case ${i} in
+            (*tar*|*zip*|*sum*|*foot*) rm -rf ${i};;
+            esac
+        }
+    done
+}
+
+clean $PWD
