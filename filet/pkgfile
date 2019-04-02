@@ -1,0 +1,13 @@
+name=filet
+version=0.1.0
+release=2
+
+source=(https://github.com/buffet/$name/archive/$version.tar.gz)
+
+build() {
+    cd $name-$version
+
+    make
+
+    make DESTDIR=$PKG install
+}

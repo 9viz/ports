@@ -1,0 +1,9 @@
+name=meh
+version=69f653a1f16d11b12e5b600e808a740898f3223e
+release=1
+source=(https://github.com/afarah1/meh/archive/$version.zip)
+
+build() {
+    cd $name-$version
+    make; make DESTDIR=$PKG install
+}
