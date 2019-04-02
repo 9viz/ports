@@ -1,5 +1,5 @@
-name=hsetroot
-version=master
+name="hsetroot"
+version="master"
 release=2
 
 source=(https://github.com/himdel/$name/archive/$version.zip)
@@ -14,3 +14,6 @@ build() {
     make
     make DESTDIR=$PKG install
 }
+
+
+# vim:ft=sh

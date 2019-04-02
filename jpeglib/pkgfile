@@ -1,5 +1,5 @@
-name=jpeglib
-version=9c
+name="jpeglib"
+version="9c"
 release=1
 source=(http://www.ijg.org/files/jpegsrc.v$version.tar.gz)
 
@@ -8,3 +8,6 @@ build() {
     ./configure --prefix=/usr/local
     make; make DESTDIR=$PKG install
 }
+
+
+# vim:ft=sh

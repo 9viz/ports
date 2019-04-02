@@ -1,5 +1,5 @@
-name=mupdf
-version=1.14.0
+name="mupdf"
+version="1.14.0"
 release=1
 source=(https://mupdf.com/downloads/archive/$name-$version-source.tar.gz)
 
@@ -10,3 +10,6 @@ build() {
 
     rm -rf $PKG/usr/share
 }
+
+
+# vim:ft=sh

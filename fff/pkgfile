@@ -1,5 +1,5 @@
-name=fff
-version=2.1
+name="fff"
+version="2.1"
 release=1
 
 source=(https://github.com/dylanaraps/$name/archive/$version.tar.gz)
@@ -11,3 +11,6 @@ build() {
     mkdir -p $PKG/usr/man/man1
     cp fff.1 $PKG/usr/man/man1/fff.1
 }
+
+
+# vim:ft=sh

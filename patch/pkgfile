@@ -1,5 +1,5 @@
-name=patch
-version=2.7.6
+name="patch"
+version="2.7.6"
 release=1
 source=(ftp://ftp.gnu.org/gnu/patch/$name-$version.tar.gz)
 
@@ -9,3 +9,6 @@ build() {
     make
     make DESTDIR=$PKG install
 }
+
+
+# vim:ft=sh

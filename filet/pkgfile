@@ -1,5 +1,5 @@
-name=filet
-version=0.1.0
+name="filet"
+version="0.1.0"
 release=2
 
 source=(https://github.com/buffet/$name/archive/$version.tar.gz)
@@ -11,3 +11,6 @@ build() {
 
     make DESTDIR=$PKG install
 }
+
+
+# vim:ft=sh

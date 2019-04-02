@@ -1,5 +1,5 @@
-name=hdparm
-version=9.58
+name="hdparm"
+version="9.58"
 release=1
 
 source=(https://excellmedia.dl.sourceforge.net/project/$name/$name/$name-$version.tar.gz)
@@ -9,3 +9,6 @@ build() {
     make
     make PREFIX=/usr/local DESTDIR=$PKG sbindir=/usr/local/bin man=/usr/man install
 }
+
+
+# vim:ft=sh

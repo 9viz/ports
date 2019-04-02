@@ -1,7 +1,7 @@
 # Name: xob
 # Depends: libX11 libconfig
-name=xob
-version=0.1.1
+name="xob"
+version="0.1.1"
 release=1
 source=(https://github.com/florentc/xob/archive/v$version.tar.gz)
 
@@ -16,3 +16,6 @@ build() {
         DESTDIR=$PKG PREFIX=$DESTDIR/usr/local \
         install
 }
+
+
+# vim:ft=sh

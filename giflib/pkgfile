@@ -1,5 +1,5 @@
-name=giflib
-version=5.1.8
+name="giflib"
+version="5.1.8"
 release=1
 source=(https://excellmedia.dl.sourceforge.net/project/giflib/giflib-$version.tar.gz)
 
@@ -7,3 +7,6 @@ build() {
     cd $name-$version
     make; make DESTDIR=$PKG install
 }
+
+
+# vim:ft=sh

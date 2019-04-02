@@ -1,5 +1,5 @@
-name=wmutils-core
-version=1.4
+name="wmutils-core"
+version="1.4"
 release=1
 source=(https://github.com/wmutils/core/archive/v$version.tar.gz)
 
@@ -8,3 +8,6 @@ build() {
     make
     make PREFIX=/usr/local MANPREFIX=/usr/man DESTDIR=$PKG install
 }
+
+
+# vim:ft=sh

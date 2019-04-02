@@ -1,6 +1,6 @@
-name=xbanish
+name="xbanish"
+version="1.6"
 release=1
-version=1.6
 
 source=(https://github.com/jcs/$name/archive/v$version.tar.gz)
 
@@ -9,3 +9,6 @@ build() {
     make
     make MANDIR=/usr/man/man1 DESTDIR=$PKG install
 }
+
+
+# vim:ft=sh
