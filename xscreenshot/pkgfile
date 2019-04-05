@@ -12,6 +12,8 @@ build() {
 
     git checkout $version
 
+    patch -p1 < $PKGMK_ROOT/geo.patch
+
     make; make DESTDIR=$PKG install
 }
 
