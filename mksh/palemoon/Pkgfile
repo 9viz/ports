@@ -1,0 +1,9 @@
+# Name: palemoon
+# Description: Browser
+# Dependencies: gtk glib pango libstdc++
+name=palemoon
+version=28.5.0
+release=1
+source=()
+
+build() {}

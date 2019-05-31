@@ -1,0 +1,8 @@
+drwxr-xr-x	viz/wheel	usr/
+drwxr-xr-x	viz/wheel	usr/local/
+drwxr-xr-x	viz/wheel	usr/local/bin/
+-rwxr-xr-x	viz/wheel	usr/local/bin/xscreenshot
+drwxr-xr-x	viz/wheel	usr/local/share/
+drwxr-xr-x	viz/wheel	usr/local/share/man/
+drwxr-xr-x	viz/wheel	usr/local/share/man/man1/
+-rw-r--r--	viz/wheel	usr/local/share/man/man1/xscreenshot.1.gz

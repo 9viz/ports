@@ -1,0 +1,18 @@
+# Name: mksh
+# Dependencies:
+# Description: MirBSD's Korn Shell
+name=mksh
+version=R57
+release=1
+source=(http://www.mirbsd.org/MirOS/dist/mir/$name/$name-$version.tgz)
+
+build() {
+	cd $name
+	for i in ${PKGMK_ROOT}/patches/*; do
+		patch -p1 < ${i}
+	done
+	sh ./Build.sh
+	mkdir -p $PKG/{bin,usr/share/man/man1}
+	install -m 555 mksh $PKG/bin/mksh
+	install -m 444 mksh.1 $PKG/usr/share/man/man1/
+}
