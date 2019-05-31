@@ -14,7 +14,7 @@ build() {
 
     patch -p1 < $PKGMK_ROOT/geo.patch
 
-    make; make DESTDIR=$PKG install
+    make; make PREFIX=/usr DESTDIR=$PKG install
 }
 
 

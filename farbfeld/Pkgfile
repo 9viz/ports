@@ -12,7 +12,7 @@ build() {
     git checkout "${version}"
     cp $PKGMK_ROOT/Makefile ./
 
-    make; make DESTDIR=$PKG install
+    make; make PREFIX=/usr DESTDIR=$PKG install
 }
 
 

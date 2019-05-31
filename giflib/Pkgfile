@@ -5,7 +5,7 @@ source=(https://excellmedia.dl.sourceforge.net/project/giflib/giflib-$version.ta
 
 build() {
     cd $name-$version
-    make; make DESTDIR=$PKG install
+    make; make PREFIX=/usr DESTDIR=$PKG install
 }
 
 

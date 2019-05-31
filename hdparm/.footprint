@@ -1,8 +1,0 @@
-drwxr-xr-x	viz/audio	usr/
-drwxr-xr-x	viz/audio	usr/local/
-drwxr-xr-x	viz/audio	usr/local/bin/
--rwxr-xr-x	viz/audio	usr/local/bin/hdparm
-drwxr-xr-x	viz/audio	usr/share/
-drwxr-xr-x	viz/audio	usr/share/man/
-drwxr-xr-x	viz/audio	usr/share/man/man8/
--rw-r--r--	viz/audio	usr/share/man/man8/hdparm.8.gz

@@ -8,7 +8,7 @@ build() {
     cd $name-$version
     ./configure
     make
-    make PREFIX=/usr/local DESTDIR=$PKG install
+    make PREFIX=/usr DESTDIR=$PKG install
 }
 
 

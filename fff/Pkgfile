@@ -6,10 +6,10 @@ source=(https://github.com/dylanaraps/$name/archive/$version.tar.gz)
 
 build() {
     cd $name-$version
-    mkdir -p $PKG/usr/{local/bin,man}
-    cp fff $PKG/usr/local/bin
-    mkdir -p $PKG/usr/man/man1
-    cp fff.1 $PKG/usr/man/man1/fff.1
+    mkdir -p $PKG/usr/{bin,share/man}
+    cp fff $PKG/usr/bin
+    mkdir -p $PKG/usr/share/man/man1
+    cp fff.1 $PKG/usr/share/man/man1/fff.1
 }
 
 

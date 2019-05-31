@@ -1,4 +1,3 @@
 drwxr-xr-x	viz/wheel	usr/
-drwxr-xr-x	viz/wheel	usr/local/
-drwxr-xr-x	viz/wheel	usr/local/bin/
--rwxr-xr-x	viz/wheel	usr/local/bin/lemonbar
+drwxr-xr-x	viz/wheel	usr/bin/
+-rwxr-xr-x	viz/wheel	usr/bin/lemonbar

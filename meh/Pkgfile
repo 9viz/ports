@@ -5,7 +5,7 @@ source=(https://github.com/afarah1/meh/archive/$version.zip)
 
 build() {
     cd $name-$version
-    make; make DESTDIR=$PKG install
+    make; make PREFIX=/usr DESTDIR=$PKG install
 }
 
 

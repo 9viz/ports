@@ -6,7 +6,7 @@ source=(https://mupdf.com/downloads/archive/$name-$version-source.tar.gz)
 build() {
     cd $name-$version-source
     make
-    make DESTDIR=$PKG incdir=/usr/include libdir=/var/lib mandir=/usr/man install
+    make PREFIX=/usr DESTDIR=$PKG incdir=/usr/include libdir=/var/lib mandir=/usr/man install
 
     rm -rf $PKG/usr/share
 }

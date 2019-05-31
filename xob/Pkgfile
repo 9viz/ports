@@ -13,7 +13,7 @@ build() {
     cd ..
     make
     make \
-        DESTDIR=$PKG PREFIX=$DESTDIR/usr/local \
+        DESTDIR=$PKG PREFIX=$DESTDIR/usr \
         install
 }
 

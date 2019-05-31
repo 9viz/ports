@@ -7,7 +7,7 @@ source=(https://github.com/jcs/$name/archive/v$version.tar.gz)
 build() {
     cd $name-$version
     make
-    make MANDIR=/usr/man/man1 DESTDIR=$PKG install
+    make PREFIX=/usr DESTDIR=$PKG install
 }
 
 
