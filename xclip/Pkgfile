@@ -1,0 +1,18 @@
+# Name: xclip
+# Description: cli for X11 clipboard
+# Dependencies: xorg-libX11 autoconf
+
+name=xclip
+version=0.13
+release=1
+source=(https://github.com/astrand/$name/archive/$version.tar.gz)
+
+build() {
+    cd $name-$version
+    autoreconf
+    ./configure prefix=/usr
+    make
+    make DESTDIR=$PKG install
+    rm $PKG/usr/bin/xclip-*
+    rm $PKG/usr/share/man/man1/xclip-*
+}
