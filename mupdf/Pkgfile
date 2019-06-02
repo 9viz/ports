@@ -1,15 +1,26 @@
-name="mupdf"
-version="1.14.0"
+# Name: mupdf
+# Description: Lightweight PDF and XPS viewer
+# Depends on:  libglvnd harfbuzz libjpeg-turbo
+
+name=mupdf
+version=1.15.0
 release=1
-source=(https://mupdf.com/downloads/archive/$name-$version-source.tar.gz)
+source=(https://mupdf.com/downloads/archive/$name-$version-source.tar.xz)
 
 build() {
     cd $name-$version-source
-    make
-    make PREFIX=/usr DESTDIR=$PKG incdir=/usr/include libdir=/var/lib mandir=/usr/man install
+    patch -p1 < $PKGMK_ROOT/mupdf-history.diff
 
-    rm -rf $PKG/usr/share
+    export USE_SYSTEM_LIBS='yes'
+
+    make install \
+        prefix=$PKG/usr \
+        mandir=$PKG/usr/share/man \
+        XCFLAGS="-fpic" \
+        USE_SYSTEM_JBIG2DEC='no' \
+        USE_SYSTEM_OPENJPEG='no' \
+        USE_SYSTEM_GLUT='no'
+
+    ln -s mupdf-gl $PKG/usr/bin/mupdf
+    rm -r $PKG/usr/share/doc
 }
-
-
-# vim:ft=sh
