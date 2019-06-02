@@ -1,0 +1,7 @@
+drwxr-xr-x	viz/wheel	usr/
+drwxr-xr-x	viz/wheel	usr/bin/
+-rwxr-xr-x	viz/wheel	usr/bin/xclip
+drwxr-xr-x	viz/wheel	usr/share/
+drwxr-xr-x	viz/wheel	usr/share/man/
+drwxr-xr-x	viz/wheel	usr/share/man/man1/
+-rw-r--r--	viz/wheel	usr/share/man/man1/xclip.1.gz
