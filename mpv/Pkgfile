@@ -1,0 +1,24 @@
+# Name: mpv
+# Description: a media player
+# Dependencies: python libass ffmpeg lcms2
+# Optional Dependencies: youtube-dl
+
+name=mpv
+version=0.29.1
+release=1
+source=(https://github.com/$name-player/$name/archive/v$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./bootstrap.py
+	./waf configure                 \
+              --destdir=$PKG            \
+	      --prefix=/usr             \
+	      --disable-build-date      \
+              --disable-debug-build     \
+              --disable-iconv           \
+              --disable-javascript
+	./waf
+	./waf install --destdir=$PKG
+	rm -r $PKG/usr/share
+}
