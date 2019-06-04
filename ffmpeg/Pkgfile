@@ -52,7 +52,7 @@ build() {
 		--enable-swresample \
 		--enable-avresample
 
-	make -j5
+	make
 	make DESTDIR=$PKG install install-man
 
 	rm -r $PKG/usr/share/ffmpeg/examples
