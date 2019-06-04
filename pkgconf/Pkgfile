@@ -1,0 +1,21 @@
+# Name: pkgconf
+# Description: drop in replacement for pkg-config
+# Conflicts: pkg-config
+# Dependencies: 
+
+name=pkgconf
+version=1.6.1
+release=1
+source=(https://git.dereferenced.org/$name/$name/archive/$name-$version.tar.gz)
+
+build() {
+	cd $name
+	./autogen.sh
+	./configure --prefix=/usr \
+		--with-system-libdir=/lib:/usr/lib \
+		--with-system-includedir=/usr/include
+	make
+	make DESTDIR=$PKG install
+	cp $PKG/usr/bin/pkgconf $PKG/usr/bin/pkg-config
+	rm -r $PKG/usr/share/doc
+}

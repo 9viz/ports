@@ -1,0 +1,19 @@
+# Name: palemoon
+# Dependencies: alsa-lib python2 autoconf2.13
+
+name=palemoon
+version=28.5.0
+release=1
+source=(https://github.com/MoonchildProductions/UXP/archive/PM${version}_Release.tar.gz
+	mozconfig)
+
+build() {
+	cd UXP-PM${version}_Release
+	export OLD_CONFIGURE=$_src/old-configure
+	export AUTOCONF=/usr/bin/autoconf2.13
+	export PKG_CONFIG=/usr/bin/pkg-config
+	export CPPFLAGS="$CPPFLAGS -O2"
+	cp $PKGMK_ROOT/mozconfig .mozconfig
+	./mach build
+	./mach package
+}
