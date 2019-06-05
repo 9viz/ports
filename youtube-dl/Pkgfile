@@ -1,0 +1,18 @@
+# Name: youtube-dl
+# Description: command line utility to download videos from youtube
+# Dependencies: python
+# Optional dependencies: ffmpeg
+
+name=youtube-dl
+version=2019.05.20
+release=1
+source=(https://github.com/ytdl-org/$name/releases/download/$version/$name-$version.tar.gz)
+
+build() {
+	cd $name
+	make
+	make PREFIX=/usr DESTDIR=$PKG install
+	rm -r $PKG/{etc,usr/share}
+	mkdir -p $PKG/usr/share/man
+	mv $PKG/usr/man $PKG/usr/share/man
+}

@@ -1,4 +1,3 @@
-*
-!*/Pkgfile
-!*/*.diff
-!*/patches
+*/.*
+*/*.tar*
+*/*.zip*

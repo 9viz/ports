@@ -6,7 +6,6 @@ version=master
 release=1
 source=(https://github.com/mptre/$name/archive/$version.zip)
 
-
 build() {
 	cd $name-$version
 	PREFIX=/usr ./configure
