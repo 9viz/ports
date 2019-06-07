@@ -1,0 +1,17 @@
+# Name: zathura-pdf-mupdf
+# Description: 
+# Dependencies: zathura girara mupdf cairo
+
+name=zathura-pdf-mupdf
+version=0.3.4
+release=1
+source=(https://github.com/pwmt/$name/archive/$version.tar.gz)
+
+build() {
+	cd $name-$version
+	meson --prefix /usr build
+	cd build
+	ninja -j ${JOBS}
+	DESTDIR=$PKG ninja install
+	rm -r ${PKG}/usr/share
+}

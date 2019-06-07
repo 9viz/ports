@@ -1,7 +1,7 @@
 # Name: mpv
 # Description: a media player
 # Dependencies: python libass ffmpeg lcms2
-# Optional Dependencies: youtube-dl
+# Optional Dependencies: youtube-dl lua
 
 name=mpv
 version=0.29.1
@@ -12,12 +12,14 @@ build() {
 	cd $name-$version
 	./bootstrap.py
 	./waf configure                 \
-              --destdir=$PKG            \
+	      --mandir=/usr/share/man   \
 	      --prefix=/usr             \
+	      --enable-alsa             \
 	      --disable-build-date      \
               --disable-debug-build     \
+	      --disable-javascript      \
               --disable-iconv           \
-              --disable-javascript
+	      -j ${JOBS}
 	./waf
 	./waf install --destdir=$PKG
 	rm -r $PKG/usr/share
