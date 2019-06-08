@@ -1,6 +1,6 @@
 # Name: mpv
 # Description: a media player
-# Dependencies: python libass ffmpeg lcms2
+# Dependencies: python libass ffmpeg lcms2 xorg-libxscrnsaver libvdpau
 # Optional Dependencies: youtube-dl lua
 
 name=mpv

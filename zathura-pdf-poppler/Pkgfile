@@ -1,9 +1,9 @@
-# Name: zathura-pdf-mupdf
+# Name: zathura-pdf-poppler
 # Description: 
-# Dependencies: zathura girara mupdf cairo
+# Dependencies: zathura girara poppler-glib
 
-name=zathura-pdf-mupdf
-version=0.3.4
+name=zathura-pdf-poppler
+version=0.2.9
 release=1
 source=(https://github.com/pwmt/$name/archive/$version.tar.gz)
 
