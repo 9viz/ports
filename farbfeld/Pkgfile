@@ -1,16 +1,17 @@
 name="farbfeld"
 version="03f1f1f7adfd656f59de2b75ac74e0139931333d"
 release=1
-source=()
+source=(remove_jpeg.diff)
 
 build() {
     cd $PKGMK_ROOT
-    [ ! -d ./farbfeld ] && git clone git://git.suckless.org/farbfeld
+    [ ! -d ./farbfeld ] && git clone git://git.suckless.org/farbfeld --depth 1
 
     cd ./farbfeld
 
     git checkout "${version}"
-    cp $PKGMK_ROOT/Makefile ./
+    patch -p1 < $SRC/remove_jpeg.diff
 
-    make; make PREFIX=/usr DESTDIR=$PKG install
+    make
+    make PREFIX=/usr DESTDIR=$PKG install
 }
