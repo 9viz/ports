@@ -11,6 +11,3 @@ build() {
     mkdir -p $PKG/usr/share/man/man1
     cp fff.1 $PKG/usr/share/man/man1/fff.1
 }
-
-
-# vim:ft=sh
