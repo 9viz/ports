@@ -1,0 +1,21 @@
+# Name: mandoc
+# Description: UNIX manpage compiler toolset
+# Dependencies: gzip
+# Replaces: man-db
+
+name=mandoc
+version=1.14.5
+release=1
+source=(https://mandoc.bsd.lv/snapshots/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    cat > configure.local << EOF
+MANPATH_DEFAULT='/usr/share/man'
+PREFIX=/usr
+MANDIR=/usr/share/man
+EOF
+    ./configure
+    make
+    make DESTDIR=$PKG install
+}
