@@ -1,0 +1,14 @@
+# Name: ircdiscord
+# Description: translation layer between irc and discord
+# Dependencies:
+
+name=ircdiscord
+version=0.2.0
+release=1
+source=(https://github.com/tadeokondrak/IRCdiscord/releases/download/$version/IRCdiscord-linux)
+
+build() {
+        chmod +x IRCdiscord-linux
+        mkdir -p $PKG/usr/bin
+        cp IRCdiscord-linux $PKG/usr/bin/$name
+}
