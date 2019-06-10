@@ -1,0 +1,27 @@
+# Name: racket
+# Description: A minimal racket package
+# Depends on: autoconf libffi
+
+name=racket
+version=7.3
+release=1
+source=(https://mirror.$name-lang.org/installers/$name/$name-minimal-$version-src.tgz)
+
+build() {
+    cd $name-$version/src
+    sed -i 's|~/.racketrc|~/etc/racketrc|' racket/main.c
+
+    mkdir build
+    cd build
+    ../configure --prefix=/usr \
+                 --enable-ffi \
+                 --disable-{docs,gracket}
+    make
+    make DESTDIR=$PKG install
+
+    rm -r $PKG/usr/share/{application,doc}
+    find $PKG -name '*.txt'  -delete
+    find $PKG -name 'README*' -delete
+    find $PKG -name 'LICENSE*' -delete
+    find $PKG -name '*icon*' -delete
+}
