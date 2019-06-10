@@ -1,6 +1,6 @@
 # Name: mandoc
 # Description: UNIX manpage compiler toolset
-# Dependencies: gzip
+# Depends on: gzip
 # Replaces: man-db
 
 name=mandoc

@@ -1,6 +1,6 @@
 # Name: ircdiscord
 # Description: translation layer between irc and discord
-# Dependencies:
+# Depends on:
 
 name=ircdiscord
 version=0.2.0

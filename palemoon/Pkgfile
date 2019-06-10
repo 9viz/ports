@@ -1,5 +1,5 @@
 # Name: palemoon
-# Dependencies: alsa-lib python2 autoconf2.13
+# Depends on: alsa-lib python2 autoconf2.13
 
 name=palemoon
 version=28.5.0

@@ -1,6 +1,6 @@
 # Name: slock
 # Description: simple X locker
-# Dependencies:
+# Depends on:
 # Note: Build it as root
 name=slock
 version=1.4

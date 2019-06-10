@@ -1,6 +1,6 @@
 # Name: zathura
 # Description: a documenter viewer
-# Dependencies: glib meson girara ninja
+# Depends on: glib meson girara ninja
 
 name=zathura
 version=0.4.3

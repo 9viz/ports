@@ -1,6 +1,6 @@
 # Name: zathura-pdf-poppler
 # Description: 
-# Dependencies: zathura girara poppler-glib
+# Depends on: zathura girara poppler-glib
 
 name=zathura-pdf-poppler
 version=0.2.9

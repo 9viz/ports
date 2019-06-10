@@ -1,7 +1,7 @@
 # Name: libass
 # Description: portable subtitle library for ASS
-# Dependencies: freetype fribidi nasm
-# Optional Dependencies: harfbuzz
+# Depends on: freetype fribidi nasm
+# Optional Depends on: harfbuzz
 name=libass
 version=0.14.0
 release=1

@@ -1,6 +1,6 @@
 # Name: xdotool
 # Description: fake keyboard/mouse input, window management, and more
-# Dependencies: libxkbcommon xorg-libX11 xorg-libxinerama xorg-libxtst
+# Depends on: libxkbcommon xorg-libX11 xorg-libxinerama xorg-libxtst
 name=xdotool
 version=3.20160805.1
 release=1

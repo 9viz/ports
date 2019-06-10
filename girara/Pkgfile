@@ -1,6 +1,6 @@
 # Name: girara
 # Description: library to build minimalist UI
-# Dependencies: glib gtk3 pango meson ninja
+# Depends on: glib gtk3 pango meson ninja
 
 name=girara
 version=0.3.2

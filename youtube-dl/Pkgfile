@@ -1,6 +1,6 @@
 # Name: youtube-dl
 # Description: command line utility to download videos from youtube
-# Dependencies: python
+# Depends on: python
 # Optional dependencies: ffmpeg
 
 name=youtube-dl

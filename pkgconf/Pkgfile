@@ -1,7 +1,7 @@
 # Name: pkgconf
 # Description: drop in replacement for pkg-config
 # Conflicts: pkg-config
-# Dependencies: 
+# Depends on: 
 
 name=pkgconf
 version=1.6.1

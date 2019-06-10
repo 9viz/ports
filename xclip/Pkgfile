@@ -1,6 +1,6 @@
 # Name: xclip
 # Description: cli for X11 clipboard
-# Dependencies: xorg-libX11 autoconf
+# Depends on: xorg-libX11 autoconf
 
 name=xclip
 version=0.13

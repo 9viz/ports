@@ -1,6 +1,6 @@
 # Name: nvi
 # Description: new vi
-# Dependencies: curses autoconf
+# Depends on: curses autoconf
 
 name=vi
 version=1.81.6

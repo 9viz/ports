@@ -1,5 +1,5 @@
 # Name: mksh
-# Dependencies:
+# Depends on:
 # Description: MirBSD's Korn Shell
 name=mksh
 version=R57
