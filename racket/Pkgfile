@@ -19,7 +19,7 @@ build() {
     make
     make DESTDIR=$PKG install
 
-    rm -r $PKG/usr/share/{application,doc}
+    rm -r $PKG/usr/share/{applications,doc}
     find $PKG -name '*.txt'  -delete
     find $PKG -name 'README*' -delete
     find $PKG -name 'LICENSE*' -delete
