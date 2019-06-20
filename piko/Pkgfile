@@ -1,0 +1,15 @@
+# Name: piko
+# Description: light and simple downloader for a number of sites including youtube, 4chan
+# Depends on: 
+# Optional Depends on: ffmpeg
+
+name=piko
+version=0.5.2
+release=1
+source=(https://github.com/mlvzk/$name/releases/download/v$version/$name)
+
+build() {
+	mkdir -p $PKG/usr/bin
+	cp $SRC/piko $PKG/usr/bin
+	chmod +x $PKG/usr/bin/piko
+}

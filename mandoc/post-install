@@ -1,0 +1,2 @@
+# run as root
+makewhatis /usr/share/man

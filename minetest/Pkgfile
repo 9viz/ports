@@ -1,0 +1,18 @@
+# Name: minetest
+# Description: opensource voxel game engine
+# Depends on: libvorbis luajit mesa3d irrlicht openal sqlite3
+
+name=minetest
+version=5.0.1
+release=1
+source=(https://github.com/$name/$name/archive/$version.tar.gz)
+
+build() {
+	cd $name-$version
+	cmake -DCMAKE_BUILD_TYPE=Release \
+		-DENABLE_NCURSES=OFF \
+		-DCMAKE_INSTALL_PREFIX=/usr
+	make -j `nproc`
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/{icons,applications,minetest/locale,doc}
+}

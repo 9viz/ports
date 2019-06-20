@@ -1,0 +1,16 @@
+# Name: irrlicht
+# Description: lightning fast realtime 3d engine
+# Dependencies: libjpeg libpng mesa3d xorg-libxcursor zlib
+
+name=irrlicht
+version=1.8.4
+release=1
+source=(https://downloads.sourceforge.net/irrlicht/$name-$version.zip)
+
+build() {
+    cd $name-$version/source/Irrlicht
+    mkdir -p $PKG/usr/lib
+    make NDEBUG=1 sharedlib
+    sed -i "/^INSTALL_DIR/s:=.*:=$PKG/usr/lib:" Makefile
+    make install
+}

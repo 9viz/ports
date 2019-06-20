@@ -1,0 +1,15 @@
+# Name: minetest_game
+# Description: game for the minetest voxel engine
+# Depends on: minetest
+
+name=minetest_game
+version=5.0.1
+release=1
+source=(https://github.com/minetest/$name/archive/$version.tar.gz)
+
+build() {
+	mkdir -p $PKG/usr/share/minetest/games/minetest_game
+	cd $name-$version
+	rm *.txt
+	cp -r * $PKG/usr/share/minetest/games/minetest_game
+}
