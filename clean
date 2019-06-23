@@ -5,7 +5,7 @@ clean() {
         [ -d ${i} ] && clean ${i}
         [ -f ${i} ] && {
             case ${i} in
-            (*tar*|*zip*|*sum*|*foot*) rm -rf ${i};;
+            (*zip*|*sum*|*foot*) rm -rf ${i};;
             esac
         }
     done
