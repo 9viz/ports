@@ -1,9 +1,15 @@
-name="giflib"
-version="5.1.8"
+# Name: giflib
+# Description: a library and utilities for processing gifs
+# Depends on:
+
+name=giflib
+version=5.1.8
 release=1
 source=(https://excellmedia.dl.sourceforge.net/project/giflib/giflib-$version.tar.gz)
 
 build() {
     cd $name-$version
-    make; make PREFIX=/usr DESTDIR=$PKG install
+    make
+    make PREFIX=/usr DESTDIR=$PKG install
+    rm -r $PKG/usr/{bin,share}
 }

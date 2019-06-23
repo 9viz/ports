@@ -1,9 +1,12 @@
+# Name: iw
+# Description: nl80211 based cli config utility for wireless devices
+# Depends on: libnl linux
 name=iw
 version=5.0
 release=1
 source=(https://www.kernel.org/pub/software/network/$name/$name-$version.tar.xz)
 
 build() {
-	cd $name-$version
-	make; make DESTDIR=$PKG install
+    cd $name-$version
+    make; make DESTDIR=$PKG install
 }

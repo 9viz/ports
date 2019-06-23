@@ -1,10 +1,14 @@
+# Name: sxhkd
+# Description: simple x hotkey daemon
+# Depends on: xorg-xcb-util xorg-xcb-util-keysyms
+
 name=sxhkd
 version=0.6.0
 release=1
 source=(https://github.com/baskerville/$name/archive/$version.tar.gz)
 
 build() {
-	cd $name-$version
-	make
-	make PREFIX=/usr DESTDIR=$PKG install
+    cd $name-$version
+    make
+    make PREFIX=/usr DESTDIR=$PKG install
 }

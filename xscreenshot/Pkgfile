@@ -1,5 +1,5 @@
 # Name: xscreenshot
-# Description: Take screenshot of X display
+# Description: simple screenshot utility for X
 # Depends on:
 # Optional: farbfeld
 

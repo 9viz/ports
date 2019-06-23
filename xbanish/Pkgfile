@@ -1,5 +1,9 @@
-name="xbanish"
-version="1.6"
+# Name: xbanish
+# Description: hide X cursor when typing
+# Depends on: xorg-libx11
+
+name=xbanish
+version=1.6
 release=1
 
 source=(https://github.com/jcs/$name/archive/v$version.tar.gz)

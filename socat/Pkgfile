@@ -1,5 +1,9 @@
-name="socat"
-version="1.7.3.2"
+# Name: socat
+# Description:
+# Dependencies:
+
+name=socat
+version=1.7.3.3
 release=1
 
 source=(http://www.dest-unreach.org/socat/download/socat-$version.tar.gz)

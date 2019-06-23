@@ -1,5 +1,9 @@
-name="bar"
-version="xft-port"
+# Name: lemonbar
+# Description:
+# Depends on: xorg-xcb-util-wm xorg-libxcb freetype fontconfig xorg-xcb-util-renderutil xorg-libxft xorg-libx11
+
+name=bar
+version=xft-port
 release=2
 
 source=(https://github.com/vizs/$name/archive/$version.zip)
