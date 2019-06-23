@@ -1,17 +1,17 @@
-# Name: nvi
-# Description: new vi
-# Depends on: curses autoconf
+# Name: vi
+# Description: busybox vi
+# Depends on:
 
 name=vi
-version=1.81.6
+version=1.31.0
 release=1
-source=(http://pkgs.fedoraproject.org/repo/pkgs/nvi/nvi-${version}.tar.bz2/88d1e23115ee9f2961186b62e55f5704/nvi-${version}.tar.bz2)
+source=(https://busybox.net/downloads/busybox-$version.tar.bz2
+       config)
 
 build() {
-	cd n$name-$version/build.unix
-	../dist/configure
-	make
-	mkdir -p $PKG/usr/{bin,share/man/man1}
-	cp vi $PKG/usr/bin
-	cp ../docs/vi.man/vi.1 $PKG/usr/share/man/man1
+    cd busybox-$version
+    cp $SRC/config ./.config
+    make -j`nproc`
+    mkdir -p $PKG/usr/bin
+    cp ./busybox $PKG/usr/bin/vi
 }
