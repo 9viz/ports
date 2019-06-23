@@ -1,18 +1,23 @@
-name="xscreenshot"
-version="6b5515432737f1a4c93c8691829f0a17b8f42a5d"
+# Name: xscreenshot
+# Description: Take screenshot of X display
+# Depends on:
+# Optional: farbfeld
+
+name=xscreenshot
+version=6b5515432737f1a4c93c8691829f0a17b8f42a5d
 release=1
-source=()
+source=(geo.patch)
 
 build() {
-    cd $PKGMK_ROOT
+    cd $SRC
 
-    [ ! -d $PKGMK_ROOT/xscreenshot ] && git clone git://git.2f30.org/xscreenshot.git
+    [ ! -d $SRC/xscreenshot ] && git clone git://git.2f30.org/xscreenshot.git
 
-    cd $PKGMK_ROOT/xscreenshot
+    cd $SRC/xscreenshot
 
     git checkout $version
 
-    patch -p1 < $PKGMK_ROOT/geo.patch
+    patch -p1 < $SRC/geo.patch
 
     make; make PREFIX=/usr DESTDIR=$PKG install
 }

@@ -1,15 +1,19 @@
-name="farbfeld"
-version="03f1f1f7adfd656f59de2b75ac74e0139931333d"
+# Name: farbfeld
+# Description: suckless image format with conversion tools
+# Depends on: libpng
+
+name=farbfeld
+version=03f1f1f7adfd656f59de2b75ac74e0139931333d
 release=1
 source=(remove_jpeg.diff)
 
 build() {
-    cd $PKGMK_ROOT
-    [ ! -d ./farbfeld ] && git clone git://git.suckless.org/farbfeld --depth 1
+    cd $SRC
+    [ ! -d $SRC/farbfeld ] && git clone git://git.suckless.org/farbfeld --depth 1
 
-    cd ./farbfeld
+    cd $SRC/farbfeld
 
-    git checkout "${version}"
+    git checkout ${version}
     patch -p1 < $SRC/remove_jpeg.diff
 
     make
