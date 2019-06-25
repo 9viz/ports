@@ -4,12 +4,14 @@
 
 name=racket
 version=7.3
-release=1
+release=2
 source=(https://mirror.$name-lang.org/installers/$name/$name-minimal-$version-src.tgz)
 
 build() {
     cd $name-$version/src
     sed -i 's|~/.racketrc|~/etc/racketrc|' racket/main.c
+    sed -e 's|home_str = "~/.racket/"|home_str = "~/opt/racket/"|' \
+	-e 's|return append_paths(home, ".racketrc", 1, 0);|return append_paths(home, "etc/racketrc", 1, 0);|' -i rktio/rktio_fs.c
 
     mkdir build
     cd build
