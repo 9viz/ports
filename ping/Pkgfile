@@ -1,6 +1,6 @@
 # Name: ping
 # Description: simple ping utility
-# Depends: cmake
+# Depends on: cmake
 
 name=ping
 version=git
