@@ -1,0 +1,17 @@
+# Name: ping
+# Description: simple ping utility
+# Depends: cmake
+
+name=ping
+version=git
+release=1
+
+build() {
+	cd $SRC
+	git clone https://github.com/sryze/$name --depth 1
+	cd $name
+	cmake .
+	make
+	mkdir -p $PKG/usr/bin
+	cp ping $PKG/usr/bin/ping
+}
