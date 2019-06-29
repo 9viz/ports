@@ -1,6 +1,6 @@
 # Name: emacs
 # Description: GNU Emacs
-# Depends on: gtk gnutls libpng
+# Depends on: gtk libpng
 
 name=emacs
 version=26.2
@@ -12,12 +12,12 @@ build() {
     cd $name-$version
     patch -p1 < $SRC/change_emacs_directory.diff
     ./configure --prefix=/usr \
+	--libexecdir=/usr/lib \
         --sysconfdir=/usr/etc \
         --with-x-toolkit=gtk2 \
         --with-sound=no \
-        --without-imagemagick \
         --with-xft \
-        --without-{gsettings,selinux,gpm,libsystemd,gif,tiff} \
+        --without-{gsettings,selinux,gpm,libsystemd,gif,tiff,gnutls,imagemagick} \
         --with-x \
 	--disable-nls
     make
