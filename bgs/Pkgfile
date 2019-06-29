@@ -1,6 +1,6 @@
 # Name: bgs
 # Description: background setter
-# Depends on: Imlib2 libexif
+# Depends on: imlib2 libexif
 
 name=bgs
 version=master

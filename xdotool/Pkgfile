@@ -3,11 +3,11 @@
 # Depends on: libxkbcommon xorg-libX11 xorg-libxinerama xorg-libxtst
 name=xdotool
 version=3.20160805.1
-release=1
+release=2
 source=(https://github.com/jordansissel/$name/releases/download/v$version/$name-$version.tar.gz)
 
 build() {
     cd $name-$version
-    make PREFIX=/usr
-    make PREFIX=/usr DESTDIR=$PKG install
+    make
+    make PREFIX=/usr INSTALLMAN=/usr/share/man DESTDIR=$PKG install
 }

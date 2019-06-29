@@ -3,12 +3,12 @@
 
 name=pick
 version=master
-release=1
+release=2
 source=(https://github.com/mptre/$name/archive/$version.zip)
 
 build() {
 	cd $name-$version
-	PREFIX=/usr ./configure
+	PREFIX=/usr MANDIR=/usr/share/man ./configure
 	make
 	make install DESTDIR=$PKG
 }
