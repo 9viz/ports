@@ -3,7 +3,8 @@
 # Depends on: libpng
 
 name=farbfeld
-version=03f1f1f7adfd656f59de2b75ac74e0139931333d
+version=git
+commit=03f1f1f7adfd656f59de2b75ac74e0139931333d
 release=1
 source=(remove_jpeg.diff)
 
@@ -13,7 +14,7 @@ build() {
 
     cd $SRC/farbfeld
 
-    git checkout ${version}
+    git checkout ${commit}
     patch -p1 < $SRC/remove_jpeg.diff
 
     make

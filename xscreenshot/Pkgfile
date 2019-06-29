@@ -4,7 +4,8 @@
 # Optional: farbfeld
 
 name=xscreenshot
-version=6b5515432737f1a4c93c8691829f0a17b8f42a5d
+version=git
+commit=6b5515432737f1a4c93c8691829f0a17b8f42a5d
 release=1
 source=(geo.patch)
 
@@ -15,7 +16,7 @@ build() {
 
     cd $SRC/xscreenshot
 
-    git checkout $version
+    git checkout $commit
 
     patch -p1 < $SRC/geo.patch
 
