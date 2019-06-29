@@ -1,6 +1,6 @@
 # Name: wpa_supplicant
 # Description: user space IEEE 802.1X/WPA supplicant
-# Depends on: openssl
+# Depends on: openssl libnl
 
 name=wpa_supplicant
 version=2.8
