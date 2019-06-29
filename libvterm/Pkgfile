@@ -1,0 +1,15 @@
+# Name: libvterm
+# Description:
+# Depends on:
+
+name=libvterm
+version=git
+release=1
+source=(https://github.com/neovim/$name/archive/master.zip)
+
+build() {
+	cd $name-master
+	make
+	make PREFIX=/usr DESTDIR=$PKG install
+	rm -r $PKG/usr/bin
+}
