@@ -1,0 +1,34 @@
+# Name: wpa_supplicant
+# Description: user space IEEE 802.1X/WPA supplicant
+# Depends on: openssl
+
+name=wpa_supplicant
+version=2.8
+release=1
+source=(http://hostap.epitest.fi/releases/$name-$version.tar.gz
+	wlan)
+
+build() {
+	cd $name-$version/$name
+	#cp defconfig .config
+	cat >> .config << EOF
+CONFIG_READLINE=n
+CONFIG_DRIVER_NL80211=y
+CONFIG_DRIVER_WEXT=y
+EOF
+#CONFIG_LIBNL32=y
+#CFLAGS+=-I/usr/include/libnl3
+
+	make BINDIR=/usr/sbin LIBDIR=/usr/lib
+	install -d $PKG/{usr/sbin,usr/share/man/man{8,5},etc}
+	install -m 0755 wpa_{cli,passphrase,supplicant} $PKG/usr/sbin
+	install -m 0644 doc/docbook/wpa_{background,cli,passphrase,supplicant}.8 $PKG/usr/share/man/man8
+	install -m 0644 doc/docbook/wpa_supplicant.conf.5 $PKG/usr/share/man/man5
+
+	# config
+	echo -e "ctrl_interface=/var/run/wpa_supplicant\n" > $PKG/etc/wpa_supplicant.conf
+	chmod 0600 $PKG/etc/wpa_supplicant.conf
+
+	# rc script
+	install -D -m 0755 $SRC/wlan $PKG/etc/rc.d/wlan
+}
