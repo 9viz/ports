@@ -15,9 +15,9 @@ build() {
 CONFIG_READLINE=n
 CONFIG_DRIVER_NL80211=y
 CONFIG_DRIVER_WEXT=y
+CONFIG_LIBNL32=y
+CFLAGS+=-I/usr/include/libnl3
 EOF
-#CONFIG_LIBNL32=y
-#CFLAGS+=-I/usr/include/libnl3
 
 	make BINDIR=/usr/sbin LIBDIR=/usr/lib
 	install -d $PKG/{usr/sbin,usr/share/man/man{8,5},etc}
