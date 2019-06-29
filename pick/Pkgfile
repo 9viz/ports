@@ -2,12 +2,12 @@
 # Description: a fuzzy finder in C
 
 name=pick
-version=master
+version=git
 release=2
-source=(https://github.com/mptre/$name/archive/$version.zip)
+source=(https://github.com/mptre/$name/archive/master.zip)
 
 build() {
-	cd $name-$version
+	cd $name-master
 	PREFIX=/usr MANDIR=/usr/share/man ./configure
 	make
 	make install DESTDIR=$PKG

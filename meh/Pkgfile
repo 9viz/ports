@@ -2,12 +2,13 @@
 # Description: simple image viewer
 # Depends on: libjpeg-turbo giflib libpng
 
-name="meh"
-version="69f653a1f16d11b12e5b600e808a740898f3223e"
+name=meh
+version=git
+commit=69f653a1f16d11b12e5b600e808a740898f3223e
 release=1
-source=(https://github.com/afarah1/meh/archive/$version.zip)
+source=(https://github.com/afarah1/meh/archive/$commit.zip)
 
 build() {
-    cd $name-$version
+    cd $name-$commit
     make; make PREFIX=/usr DESTDIR=$PKG install
 }

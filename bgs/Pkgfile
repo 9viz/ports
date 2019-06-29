@@ -3,12 +3,12 @@
 # Depends on: imlib2 libexif
 
 name=bgs
-version=master
+version=git
 release=1
-source=(https://github.com/sfplayer247/$name/archive/$version.zip)
+source=(https://github.com/sfplayer247/$name/archive/master.zip)
 
 build() {
-	cd $name-$version
+	cd $name-master
 	make
 	make PREFIX=/usr DESTDIR=$PKG install
 }

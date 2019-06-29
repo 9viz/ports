@@ -3,13 +3,13 @@
 # Depends on: xorg-xcb-util-wm xorg-libxcb freetype fontconfig xorg-xcb-util-renderutil xorg-libxft xorg-libx11
 
 name=bar
-version=xft-port
+version=git
 release=2
 
-source=(https://github.com/vizs/$name/archive/$version.zip)
+source=(https://github.com/vizs/$name/archive/xft-port.zip)
 
 build() {
-    cd $name-$version
+    cd $name-xft-port
     make
     make PREFIX=/usr DESTDIR=$PKG install
 }
