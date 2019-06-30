@@ -1,10 +1,10 @@
 # Name: emacs
 # Description: GNU Emacs
-# Depends on: gtk libpng
+# Depends on: gtk3 libpng
 
 name=emacs
 version=26.2
-release=1
+release=2
 source=(http://mirrors.syringanetworks.net/gnu/$name/$name-$version.tar.xz
     change_emacs_directory.diff)
 
@@ -14,7 +14,7 @@ build() {
     ./configure --prefix=/usr \
 	--libexecdir=/usr/lib \
         --sysconfdir=/usr/etc \
-        --with-x-toolkit=gtk2 \
+        --with-x-toolkit=gtk3 \
         --with-sound=no \
         --with-xft \
         --without-{gsettings,selinux,gpm,libsystemd,gif,tiff,gnutls,imagemagick} \
