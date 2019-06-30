@@ -1,0 +1,15 @@
+# Name: sdhcp
+# Description: simple dhcpc client
+# Depends on:
+
+name=sdhcp
+version=git
+release=1
+
+build() {
+	cd $SRC
+	git clone git://git.2f30.org/$name.git --depth 1
+	cd $name
+	make
+	make PREFIX=/ MANPREFIX=/usr/share/man DESTDIR=$PKG install
+}
