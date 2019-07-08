@@ -4,7 +4,7 @@
 # Optional Depends on: ffmpeg
 
 name=piko
-version=0.5.2
+version=0.5.5
 release=1
 source=(https://github.com/mlvzk/$name/releases/download/v$version/$name)
 
