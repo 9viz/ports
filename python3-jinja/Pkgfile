@@ -1,0 +1,14 @@
+# Name: python3-jinja
+# Description: Jinja is a template engine written in pure Python
+# Depends on: python3-setuptools
+
+name=python3-jinja
+version=2.10.1
+release=1
+source=(https://github.com/pallets/jinja/archive/$version.tar.gz)
+
+build() {
+	cd jinja-$version
+	python3 setup.py build
+	PYTHONUSERBASE=$PKG/usr/lib/python3.7/site-packages python3 setup.py install --user
+}

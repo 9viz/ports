@@ -1,0 +1,14 @@
+# Name: python3-pypeg2
+# Description: 
+# Depends on: python3-setuptools
+
+name=python3-pypeg2
+version=2.15.2
+release=1
+source=(https://bitbucket.org/fdik/pypeg/get/$version.tar.gz)
+
+build() {
+	cd fdik-pypeg-43b84d987ec1
+	python3 setup.py build
+	python3 setup.py install --prefix $PKG/usr
+}

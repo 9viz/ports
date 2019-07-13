@@ -1,0 +1,16 @@
+# Name: qutebrowser
+# Description: 
+# Depends on: python3-pyqt5 python3-attrs python3-pygments python3-pypeg2 python3-pyyaml python3-jinja python3-setuptools
+
+name=qutebrowser
+version=1.6.3
+release=1
+source=(https://github.com/$name/$name/archive/v$version.tar.gz
+	better-youtube-adblock.patch)
+
+build() {
+	cd $name-$version
+	patch -p1 < $SRC/better-youtube-adblock.patch
+	python3 setup.py build
+	python3 setup.py install --prefix $PKG
+}
