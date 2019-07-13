@@ -10,5 +10,5 @@ source=(https://bitbucket.org/birkenfeld/pygments-main/get/$version.tar.gz)
 build() {
 	cd birkenfeld-pygments-main-800a6961ec37
 	python3 setup.py build
-	PYTHONUSERBASE=$PKG/usr/lib/python3.7/site-packages python3 setup.py install --user
+	python3 setup.py install --root $PKG
 }

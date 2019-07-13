@@ -10,5 +10,5 @@ source=(https://bitbucket.org/fdik/pypeg/get/$version.tar.gz)
 build() {
 	cd fdik-pypeg-43b84d987ec1
 	python3 setup.py build
-	python3 setup.py install --prefix $PKG/usr
+	python3 setup.py install --root $PKG
 }

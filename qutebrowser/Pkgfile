@@ -12,5 +12,5 @@ build() {
 	cd $name-$version
 	patch -p1 < $SRC/better-youtube-adblock.patch
 	python3 setup.py build
-	python3 setup.py install --prefix $PKG
+	python3 setup.py install --root $PKG
 }

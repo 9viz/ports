@@ -10,6 +10,5 @@ source=(https://github.com/python-attrs/attrs/archive/$version.tar.gz)
 build() {
 	cd attrs-$version
 	python3 setup.py build	
-	PYTHONUSERBASE=$PKG/usr/lib/python3.7/site-packages \
-		python3 setup.py install --user
+	python3 setup.py install --root $PKG
 }

@@ -19,5 +19,5 @@ build() {
 		--qml-plugindir=$PKG/usr/lib/qt5/qml \
 		--no-tools
 	make
-	make DESTDIR=$PKG install
+	make INSTALL_ROOT=$PKG install
 }

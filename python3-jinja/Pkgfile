@@ -10,5 +10,5 @@ source=(https://github.com/pallets/jinja/archive/$version.tar.gz)
 build() {
 	cd jinja-$version
 	python3 setup.py build
-	PYTHONUSERBASE=$PKG/usr/lib/python3.7/site-packages python3 setup.py install --user
+	python3 setup.py install --root $PKG
 }
