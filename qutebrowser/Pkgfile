@@ -1,6 +1,6 @@
 # Name: qutebrowser
 # Description: 
-# Depends on: python3-pyqt5 python3-attrs python3-pygments python3-pypeg2 python3-pyyaml python3-jinja python3-setuptools
+# Depends on: python3-pyqt5 python3-attrs python3-pygments python3-pypeg2 python3-pyyaml python3-jinja python3-setuptools python3-qtwebengine
 
 name=qutebrowser
 version=1.6.3

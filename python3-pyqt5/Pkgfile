@@ -13,10 +13,10 @@ build() {
 		--qmake /usr/lib/qt5/bin/qmake \
 		--no-python-dbus \
 		--no-qml-plugin \
-		--bindir=$PKG/usr/lib/qt5/bin \
-		--destdir=$PKG/usr/lib/python3.7/site-packages \
-		--designer-plugindir=$PKG/usr/lib/qt5/plugins \
-		--qml-plugindir=$PKG/usr/lib/qt5/qml \
+		--bindir /usr/lib/qt5/bin \
+		--destdir /usr/lib/python3.7/site-packages \
+		--designer-plugindir /usr/lib/qt5/plugins \
+		--qml-plugindir /usr/lib/qt5/qml \
 		--no-tools
 	make
 	make INSTALL_ROOT=$PKG install
