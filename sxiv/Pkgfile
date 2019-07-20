@@ -1,0 +1,14 @@
+# Name: sxiv
+# Description: Simple X Image Viewer
+# Depends on: xorg-libx11 xorg-libxft fontconfig
+
+name=sxiv
+version=25
+release=1
+source=(https://github.com/muennich/$name/archive/v$version.tar.gz)
+
+build() {
+	cd $name-$version
+	make
+	make PREFIX=/usr DESTDIR=$PKG install
+}
