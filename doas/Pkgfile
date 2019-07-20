@@ -1,0 +1,21 @@
+# Name: doas
+# Description: Execute commands as another user
+# Depends On:
+
+name=doas
+version=git
+release=1
+source=()
+
+build() {
+	cd $SRC
+	git clone https://github.com/multiplexd/$name --depth 1
+	cd $name
+	make
+	mkdir -p $PKG/usr/{share/man/man{1,5},bin}
+	cp doas $PKG/usr/bin
+	cp doas.1 $PKG/usr/share/man/man1
+	cp doas.conf.5 $PKG/usr/share/man/man5
+
+	chmod u+s $PKG/usr/bin/doas
+}
