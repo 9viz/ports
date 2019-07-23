@@ -4,7 +4,7 @@
 
 name=emacs
 version=26.2
-release=2
+release=3
 source=(http://mirrors.syringanetworks.net/gnu/$name/$name-$version.tar.xz
     change_emacs_directory.diff)
 
@@ -16,9 +16,8 @@ build() {
         --sysconfdir=/usr/etc \
         --with-x-toolkit=gtk3 \
         --with-sound=no \
-        --with-xft \
+        --with-{xft,x,modules} \
         --without-{gsettings,selinux,gpm,libsystemd,gif,tiff,gnutls,imagemagick} \
-        --with-x \
 	--disable-nls
     make
     make DESTDIR=$PKG install
