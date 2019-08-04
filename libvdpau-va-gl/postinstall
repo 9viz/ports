@@ -1,0 +1,2 @@
+#!/bin/sh
+echo VDPAU_DRIVER='va_gl' >> /etc/profile

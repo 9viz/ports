@@ -1,0 +1,17 @@
+# Name: libvdpau-va-gl
+# Description: VDPAU driver with OpenGL/VAAPI backend
+# Depends on: libva mesa
+
+name=libvdpau-va-gl
+version=0.4.2
+release=1
+source=(https://github.com/i-rinat/$name/releases/download/v$version/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	mkdir build
+	cd build
+	cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr ..
+	make
+	make DESTDIR=$PKG install
+}
