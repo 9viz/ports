@@ -1,0 +1,18 @@
+# Name: Chrome
+# Description: latest chrome - browser from google
+# Dependencies: gtk3 cups dbus nss harfbuzz cairo atk
+
+name=chrome
+version=stable_current
+release=1
+source=(https://dl.google.com/linux/direct/google-$name-${version}_amd64.deb)
+
+build() {
+	ar xf google-$name-${version}_amd64.deb
+	tar xf data.tar.xz
+	cp -r etc usr opt $PKG
+	chmod u+s $PKG/opt/google/$name/$name-sandbox
+	rm -r $PKG/usr/share/{doc,menu,appdata,applications,gnome*}
+	rm $PKG/usr/bin/*
+	ln -sf /opt/google/$name/google-$name $PKG/usr/bin/$name
+}
