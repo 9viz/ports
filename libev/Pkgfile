@@ -1,0 +1,15 @@
+# Name: libev
+# Description: libev is a high-performance event loop/event model with lots of features.
+# Depends on: libtool
+
+name=libev
+version=4.27
+release=1
+source=(http://dist.schmorp.de/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix /usr
+	make
+	make DESTDIR=$PKG install
+}

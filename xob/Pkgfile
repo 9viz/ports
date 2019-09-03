@@ -1,5 +1,5 @@
 # Name: xob
-# Depends: libX11 libconfig
+# Depends: xorg-libX11 libconfig
 name="xob"
 version="0.1.1"
 release=1
