@@ -1,0 +1,23 @@
+# Name: tcc
+# Description: Tiny C Compiler
+# Dependencies: musl
+# URL: https://bellard.org/tcc/
+
+name='tcc'
+version='0.9.27'
+release=1
+source=("http://download.savannah.gnu.org/releases/tinycc/${name}-${version}.tar.bz2"
+        'remove-doc.patch')
+
+build() {
+    cd "${name}-${version}"
+    ./configure --prefix='/opt/tcc' \
+                --strip-binary  \
+                --enable-static \
+                --config-musl
+    patch -p1 < "${SRC}/remove-doc.patch"
+    make
+    make DESTDIR="${PKG}" install
+
+    rm -r "${PKG}/opt/tcc/share/doc"
+}

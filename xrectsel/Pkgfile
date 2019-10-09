@@ -1,0 +1,18 @@
+# Name: xrectsel
+# Description: print the geometry of a rectangular screen region
+# Depends on: xorg-libX11
+
+name=xrectsel
+version=0.3.2
+release=1
+source=(https://github.com/lolilolicon/$name/archive/$version.tar.gz)
+
+build() {
+	cd $name-$version
+	# gnu sucks
+	sed -i 's/#include <config.h>//' $name.c
+	gcc -lX11 $name.c -o $name
+	mkdir -p $PKG/usr/bin
+	cp $name $PKG/usr/bin/$name
+	chmod 775 $PKG/usr/bin/$name
+}
