@@ -5,10 +5,12 @@
 name=meh
 version=git
 commit=69f653a1f16d11b12e5b600e808a740898f3223e
-release=1
-source=(https://github.com/afarah1/meh/archive/$commit.zip)
+release=2
+source=(https://github.com/afarah1/meh/archive/$commit.zip
+	set_class_hint.patch)
 
 build() {
     cd $name-$commit
+    patch -p1 < $SRC/set_class_hint.patch
     make; make PREFIX=/usr DESTDIR=$PKG install
 }

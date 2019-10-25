@@ -4,7 +4,7 @@
 
 name=chrome
 version=stable_current
-release=1
+release=2
 source=(https://dl.google.com/linux/direct/google-$name-${version}_amd64.deb)
 
 build() {
