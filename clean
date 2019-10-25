@@ -2,13 +2,13 @@
 
 clean() {
     for i in ${1}/*; do
-        [ -d ${i} ] && clean ${i}
-        [ -f ${i} ] && {
+        [ -d "${i}" ] && clean "${i}"
+        [ -f "${i}" ] && {
             case ${i} in
-            (*zip*|*sum*|*foot*) rm -rf ${i};;
+            (*zip*|*sum*|*foot*) rm -rf "${i}" ;;
             esac
         }
     done
 }
 
-clean $PWD
+clean ${PWD}
