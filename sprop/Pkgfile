@@ -1,0 +1,20 @@
+# Name: sprop
+# Description: set x property
+# Depends on: xorg-libx11
+
+name=sprop
+version=git
+release=1
+source=(optional_atom_type.patch)
+
+build() {
+    cd $SRC
+    [ ! -d $SRC/sprop ] && git clone git://oldgit.suckless.org/sprop --depth 1
+
+    cd $SRC/sprop
+
+    patch -p1 < $SRC/optional_atom_type.patch
+
+    make
+    make PREFIX=/usr DESTDIR=$PKG install
+}

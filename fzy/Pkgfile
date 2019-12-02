@@ -1,0 +1,16 @@
+# Name: fzy
+# Description: A better fuzzy finder
+# Depends on: 
+
+name=fzy
+version=1.0
+release=1
+source=(https://github.com/jhawthorn/$name/archive/$version.tar.gz
+	invert_highlight.patch)
+
+build() {
+	cd $name-$version
+	patch -p1 < $SRC/invert_highlight.patch
+	make
+	make PREFIX=/usr DESTDIR=$PKG install
+}

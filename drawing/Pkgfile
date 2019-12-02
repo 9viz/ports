@@ -1,0 +1,18 @@
+# Name: drawing
+# Description: A drawing application for the GNOME desktop
+# Depends on: gtk3 gobject-introspection glib python3-gobject python3-cairo
+
+name=drawing
+version=0.4.7
+release=1
+source=(https://github.com/maoschanz/$name/archive/$version.tar.gz)
+
+build() {
+    cd $name-$version
+    meson --prefix /usr build
+    cd build
+    ninja
+    DESTDIR=$PKG ninja install
+
+    rm -r $PKG/usr/share/{applications,icons,locale,help,metainfo}
+}

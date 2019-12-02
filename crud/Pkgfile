@@ -1,0 +1,17 @@
+# Name: crud
+# Description: prints the geometry of a selected region in x11
+# Depends on: xorg-libx11 xorg-libxcursor xorg-xorgproto
+
+name=crud
+version=0.1.1
+release=1
+source=(https://github.com/ix/$name/archive/$version.tar.gz
+	geometry_flag.patch)
+
+build() {
+	cd $name-$version
+	# sed -i -e 's/0x888888/0xffffff/' -e 's/4/1/' config.h
+	patch -p1 < $SRC/geometry_flag.patch
+	make
+	make PREFIX=/usr DESTDIR=$PKG install
+}
