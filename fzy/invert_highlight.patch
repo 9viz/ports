@@ -1,0 +1,17 @@
+diff --git a/src/tty_interface.c b/src/tty_interface.c
+index 225f33a..ab58cef 100644
+--- a/src/tty_interface.c
++++ b/src/tty_interface.c
+@@ -60,7 +60,11 @@ static void draw_match(tty_interface_t *state, const char *choice, int selected)
+ 	tty_setnowrap(tty);
+ 	for (size_t i = 0, p = 0; choice[i] != '\0'; i++) {
+ 		if (positions[p] == i) {
+-			tty_setfg(tty, TTY_COLOR_HIGHLIGHT);
++			if (selected) {
++				tty_setnormal(tty);
++				tty_setunderline(tty);
++			} else
++				tty_setinvert(tty);
+ 			p++;
+ 		} else {
+ 			tty_setfg(tty, TTY_COLOR_NORMAL);

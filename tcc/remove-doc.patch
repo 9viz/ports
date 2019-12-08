@@ -1,0 +1,38 @@
+diff --git a/Makefile.orig b/Makefile
+index 3ae466f..10cfc47 100644
+--- a/Makefile.orig
++++ b/Makefile
+@@ -86,7 +86,7 @@ ifeq ($(INCLUDED),no)
+ 
+ PROGS = tcc$(EXESUF)
+ TCCLIBS = $(LIBTCC1) $(LIBTCC) $(LIBTCCDEF)
+-TCCDOCS = tcc.1 tcc-doc.html tcc-doc.info
++TCCDOCS = tcc.1
+ 
+ all: $(PROGS) $(TCCLIBS) $(TCCDOCS)
+ 
+@@ -239,15 +239,10 @@ FORCE:
+ # --------------------------------------------------------------------------
+ # documentation and man page
+ tcc-doc.html: tcc-doc.texi
+-	makeinfo --no-split --html --number-sections -o $@ $< || true
+ 
+ tcc.1: tcc-doc.texi
+-	$(TOPSRC)/texi2pod.pl $< tcc.pod \
+-	&& pod2man --section=1 --center="Tiny C Compiler" --release="$(VERSION)" tcc.pod >tmp.1 \
+-	&& mv tmp.1 $@ || rm -f tmp.1
+ 
+ tcc-doc.info: tcc-doc.texi
+-	makeinfo $< || true
+ 
+ # --------------------------------------------------------------------------
+ # install
+@@ -333,7 +328,7 @@ tar:    tcc-doc.html
+ 	( cd $(TCC-VERSION) && git --git-dir ../.git checkout -f )
+ 	cp tcc-doc.html $(TCC-VERSION)
+ 	for f in tcc-win32.txt build-tcc.bat ; do \
+-	    cat win32/$$f | sed 's,\(.*\),\1\r,g' > $(TCC-VERSION)/win32/$$f ; \
++		cat win32/$$f | sed 's,\(.*\),\1\r,g' > $(TCC-VERSION)/win32/$$f ; \
+ 	done
+ 	tar cjf $(TCC-VERSION).tar.bz2 $(TCC-VERSION)
+ 	rm -rf $(TCC-VERSION)

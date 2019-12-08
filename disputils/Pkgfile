@@ -1,0 +1,17 @@
+# Name: disputils
+# Description: 
+# Dependencies: xorg-libxcb
+
+name=disputils
+version=git
+release=1
+
+source=()
+
+build() {
+	cd $SRC
+	[ ! -d $name ] && git clone --depth 1 https://github.com/tudurom/$name
+	cd $name
+	make
+	make PREFIX=/usr DESTDIR=$PKG install
+}
