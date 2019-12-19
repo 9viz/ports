@@ -1,0 +1,14 @@
+# Description: dynamic tiling X11 window manager
+# URL:         https://github.com/Winetricks/winetricks
+# Maintainer:  Aaron Ball, nullspoon at oper dot io
+# Depends on:  zenity
+
+name=winetricks
+version=20190310
+release=1
+source=(https://github.com/Winetricks/${name}/archive/${version}.tar.gz)
+
+build() {
+	cd $name-$version
+	make DESTDIR=$PKG install
+}
