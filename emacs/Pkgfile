@@ -1,6 +1,6 @@
 # Name: emacs
 # Description: GNU Emacs
-# Depends on: gtk3 libpng
+# Depends on: libpng
 
 name=emacs
 version=26.2
@@ -14,7 +14,7 @@ build() {
     ./configure --prefix=/usr \
 	--libexecdir=/usr/lib \
         --sysconfdir=/usr/etc \
-        --with-x-toolkit=gtk3 \
+        --with-x-toolkit=lucid \
         --with-sound=no \
         --with-{xft,x,modules} \
         --without-{gsettings,selinux,gpm,libsystemd,gif,tiff,gnutls,imagemagick} \
@@ -24,9 +24,9 @@ build() {
 
     rm $PKG/usr/bin/$name
     mv $PKG/usr/bin/$name-$version $PKG/usr/bin/$name
-    rm $PKG/usr/bin/{ebrowse,etags}
+    rm $PKG/usr/bin/ebrowse
     rm -r $PKG/usr/share/{applications,info,icons,metainfo}
-    rm $PKG/usr/share/man/man1/{ebrowse,etags}.1.gz
+    rm $PKG/usr/share/man/man1/ebrowse.1.gz
 
     # Thank You Alan
     find $PKG -name '*README*' -delete

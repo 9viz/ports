@@ -1,14 +1,14 @@
 # Name: bgs
 # Description: background setter
-# Depends on: imlib2 libexif
+# Depends on: imlib2
 
 name=bgs
 version=git
 release=1
-source=(https://github.com/sfplayer247/$name/archive/master.zip)
+source=(https://github.com/Gottox/$name/archive/master.zip)
 
 build() {
-	cd $name-master
-	make
-	make PREFIX=/usr DESTDIR=$PKG install
+    cd $name-master
+    make
+    make PREFIX=/usr DESTDIR=$PKG install
 }
