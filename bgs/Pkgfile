@@ -5,10 +5,14 @@
 name=bgs
 version=git
 release=1
-source=(https://github.com/Gottox/$name/archive/master.zip)
+source=(https://github.com/Gottox/$name/archive/master.zip
+	01-fix_zoom.patch 02-add_tiling_mode.patch)
 
 build() {
     cd $name-master
+    for i in 1 2; do
+        patch -p1 < $SRC/0$i-*.patch
+    done
     make
     make PREFIX=/usr DESTDIR=$PKG install
 }
