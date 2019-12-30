@@ -1,0 +1,16 @@
+# Name: libressl
+# Description: 
+# Depends on:
+
+name=libressl
+version=3.0.2
+release=1
+
+source=(https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr --with-openssl-dir=/etc/ssl
+	make
+	make DESTDIR=$PKG install
+}

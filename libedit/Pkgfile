@@ -1,0 +1,19 @@
+# Name: libedit
+# Description: port of the NetBSD Editline library
+# Depends on: 
+
+name=libedit
+version=20191211-3.1
+release=1
+
+source=(https://www.thrysoee.dk/editline/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+
+	mv $PKG/usr/share/man/man3/history.3 \
+		$PKG/usr/share/man/man3/libedit-history.3
+}
