@@ -1,0 +1,16 @@
+# Name: num-utils
+# Description: set of programs for dealing with numbers from the Unix command line 
+# Depends on: perl
+
+name=num-utils
+version=0.5
+release=1
+
+source=(http://suso.suso.org/programs/$name/downloads/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	make
+	make ROOT=$PKG install
+	rm -r $PKG/usr/share/doc
+}
