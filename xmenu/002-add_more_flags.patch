@@ -1,0 +1,20 @@
+diff --git a/xmenu.c b/xmenu.c
+index 627a595..98ae34b 100644
+--- a/xmenu.c
++++ b/xmenu.c
+@@ -263,6 +263,15 @@ main(int argc, char *argv[])
+ 	case 'd':
+ 		dflag = 1;
+ 		break;
++	case 'F':
++		font = EARGF(usage(stderr, argv0));
++		break;
++	case 'b':
++		background = strtoul(EARGF(usage(stderr, argv0)), NULL, 16);
++		break;
++	case 'f':
++		foreground = strtoul(EARGF(usage(stderr, argv0)), NULL, 16);
++		break;
+ 	case 'h':
+ 		usage(stdout, argv0);
+ 		return 0;

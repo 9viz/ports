@@ -1,0 +1,24 @@
+diff --git a/xmenu.c b/xmenu.c
+index d0751e4..627a595 100644
+--- a/xmenu.c
++++ b/xmenu.c
+@@ -79,6 +79,7 @@ int
+ popwindow(int x, int y, int w, int h)
+ {
+ 	int mask, val[4];
++	xcb_query_pointer_reply_t *ptr;
+ 
+ 	mask = XCB_CW_BACK_PIXEL
+ 		| XCB_CW_EVENT_MASK;
+@@ -92,6 +93,11 @@ popwindow(int x, int y, int w, int h)
+ 		| XCB_EVENT_MASK_BUTTON_RELEASE
+ 		| XCB_EVENT_MASK_POINTER_MOTION
+ 		| XCB_EVENT_MASK_STRUCTURE_NOTIFY;
++	
++	ptr = xcb_query_pointer_reply(dpy,
++		xcb_query_pointer(dpy, screen->root), 0);
++	x = ptr->root_x;
++	y = ptr->root_y;
+ 
+ 	wid = xcb_generate_id(dpy);
+ 	xcb_create_window(dpy, screen->root_depth, wid, screen->root,
