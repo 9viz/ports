@@ -1,13 +1,14 @@
-# Name: mksh
-# Depends on:
+# Name: ksh
 # Description: MirBSD's Korn Shell
-name=mksh
+# Depends on:
+
+name=ksh
 version=R57
 release=1
-source=(http://www.mirbsd.org/MirOS/dist/mir/$name/$name-$version.tgz)
+source=(http://www.mirbsd.org/MirOS/dist/mir/m$name/$name-$version.tgz)
 
 build() {
-    cd $name
+    cd m$name
     for i in ${PKGMK_ROOT}/patches/*; do
         patch -p1 < ${i}
     done
