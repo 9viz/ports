@@ -5,8 +5,7 @@
 name=xmenu
 version=git
 release=2
-source=(001-spawn_at_cursor_position.patch
-	002-add_more_flags.patch)
+source=()
 
 build() {
 	cd $SRC
@@ -14,8 +13,8 @@ build() {
 		git clone git://git.z3bra.org/xmenu.git
 	cd xmenu
 	sed -i 's/-lxcb-xrm//' config.mk
-	for i in 1 2; do
-		patch -p1 < $SRC/00$i-*.patch
+	for i in $PKGMK_ROOT/patches/*; do
+		patch -p1 < $i
 	done
 	make
 	make PREFIX=/usr DESTDIR=$PKG install

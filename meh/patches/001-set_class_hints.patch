@@ -8,7 +8,7 @@ index 07b50d6..66fa1da 100644
  	gc = XCreateGC(display, window, 0, NULL);
 +	
 +	XClassHint xhint;
-+	xhint.res_class = "meh";
++	xhint.res_class = "Meh";
 +	xhint.res_name  = "meh";
 +	XSetClassHint(display, window, &xhint);
  

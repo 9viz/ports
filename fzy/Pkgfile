@@ -5,12 +5,13 @@
 name=fzy
 version=1.0
 release=1
-source=(https://github.com/jhawthorn/$name/archive/$version.tar.gz
-	invert_highlight.patch)
+source=(https://github.com/jhawthorn/$name/archive/$version.tar.gz)
 
 build() {
 	cd $name-$version
-	patch -p1 < $SRC/invert_highlight.patch
+	for i in $PKGMK_ROOT/patches/*; do
+		patch -p1 < $i
+	done
 	make
 	make PREFIX=/usr DESTDIR=$PKG install
 }

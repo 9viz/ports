@@ -5,7 +5,7 @@
 name=sprop
 version=git
 release=1
-source=(optional_atom_type.patch)
+source=()
 
 build() {
     cd $SRC
@@ -13,7 +13,9 @@ build() {
 
     cd $SRC/sprop
 
-    patch -p1 < $SRC/optional_atom_type.patch
+    for i in $PKGMK_ROOT/patches/*; do
+        patch -p1 < $i
+    done
 
     make
     make PREFIX=/usr DESTDIR=$PKG install

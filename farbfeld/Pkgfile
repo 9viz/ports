@@ -6,7 +6,7 @@ name=farbfeld
 version=git
 commit=03f1f1f7adfd656f59de2b75ac74e0139931333d
 release=1
-source=(remove_jpeg.diff)
+source=()
 
 build() {
     cd $SRC
@@ -15,7 +15,10 @@ build() {
     cd $SRC/farbfeld
 
     git checkout ${commit}
-    patch -p1 < $SRC/remove_jpeg.diff
+
+    for i in $PKGMK_ROOT/patches/*; do
+        patch -p1 < $i
+    done
 
     make
     make PREFIX=/usr DESTDIR=$PKG install

@@ -6,10 +6,10 @@ release=1
 source=(https://github.com/florentc/xob/archive/v$version.tar.gz)
 
 build() {
-    cd $name-$version
-    cd src
-    pwd; ls
-    patch -p1 < ../../../../xobrc-cleanup.diff
+    cd $name-$version/src
+    for i in $PKGMK_ROOT/patches/*; do
+        patch -p1 < $i
+    done
     cd ..
     make
     make \

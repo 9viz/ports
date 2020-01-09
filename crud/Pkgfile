@@ -5,13 +5,15 @@
 name=crud
 version=0.1.1
 release=1
-source=(https://github.com/ix/$name/archive/$version.tar.gz
-	geometry_flag.patch)
+source=(https://github.com/ix/$name/archive/$version.tar.gz)
 
 build() {
 	cd $name-$version
-	# sed -i -e 's/0x888888/0xffffff/' -e 's/4/1/' config.h
-	patch -p1 < $SRC/geometry_flag.patch
+
+	for i in $PKGMK_ROOT/patches/*; do
+		patch -p1 < $i
+	done
+
 	make
 	make PREFIX=/usr DESTDIR=$PKG install
 }

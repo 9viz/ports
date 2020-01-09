@@ -7,11 +7,13 @@ version=0.63
 release=1
 
 source=(https://git.kitenet.net/index.cgi/moreutils.git/snapshot/moreutils-$version.tar.gz
-	nodocs.patch man.tar.gz)
+	man.tar.gz)
 
 build() {
 	cd $name-$version
-	patch -p1 < $SRC/nodocs.patch
+	for i in $PKGMK_ROOT/patches/*; do
+		patch -p1 < $i
+	done
 	make
 	make DESTDIR=$PKG install
 	mkdir -p $PKG/usr/share/man/man1

@@ -7,7 +7,7 @@ name=xscreenshot
 version=git
 commit=6b5515432737f1a4c93c8691829f0a17b8f42a5d
 release=1
-source=(geo.patch)
+source=()
 
 build() {
     cd $SRC
@@ -18,7 +18,9 @@ build() {
 
     git checkout $commit
 
-    patch -p1 < $SRC/geo.patch
+    for i in $PKGMK_ROOT/patches/*; do
+        patch -p1 < $i
+    done
 
     make; make PREFIX=/usr DESTDIR=$PKG install
 }
