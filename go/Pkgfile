@@ -1,0 +1,52 @@
+# Description: The Go Programming Language.
+# URL:         https://golang.org/
+# Depends on:
+
+name=go
+version=1.13.5
+release=1
+source=(
+	https://dl.google.com/$name/$name$version.src.tar.gz
+	https://dl.google.com/$name/$name$version.linux-amd64.tar.gz
+)
+
+unpack_source() {
+	install -d $SRC/go-bootstrap-$version
+	tar -xf $PKGMK_SOURCE_DIR/go$version.linux-amd64.tar.gz \
+		-C $SRC/go-bootstrap-$version --strip-components 1
+	tar -xf $PKGMK_SOURCE_DIR/go$version.src.tar.gz \
+		-C $SRC
+}
+
+build() {
+	export GOROOT_BOOTSTRAP=$SRC/go-bootstrap-$version
+	export GOROOT_FINAL=/usr/lib/go
+	export GOOS=linux
+	export GOARCH=amd64
+
+	cd go/src
+	sed -i -e 's|#!/usr/bin/env bash|#!/bin/sh|' \
+		make.bash run.bash
+	# if you have GOROOT_BOOTSTRAP exported, there's no problem
+	# in using sh!
+	sh make.bash --no-clean
+
+	install -d $PKG/usr/lib
+	cp -r $SRC/go $PKG/usr/lib/
+
+	install -d $PKG/usr/bin
+	ln -s /usr/lib/go/bin/go $PKG/usr/bin/
+	ln -s /usr/lib/go/bin/gofmt $PKG/usr/bin/
+
+	find $PKG \( -name "*.a" -o -name "*.go" \) -exec chmod 644 '{}' \;
+	find $PKG \( -name "README*" -o -name "AUTHORS" -o -name "TODO" \) -delete
+	find $PKG -type f -a -name \*_test.go -delete
+	find $PKG -type f -a -name \*.bash    -delete
+	find $PKG -type f -a -name \*.bat     -delete
+	find $PKG -type f -a -name \*.rc      -delete
+	find . -type d -a -name testdata |
+	while read -r dir; do
+		rm -rf "$dir"
+	done
+	rm -r $PKG/usr/lib/go/doc
+}
