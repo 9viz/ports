@@ -1,18 +1,8 @@
-From 0b2ccfc9b025fc389ced29373ef86e1d9e6579d1 Mon Sep 17 00:00:00 2001
-From: bauen1 <j2468h@gmail.com>
-Date: Sat, 8 Jul 2017 10:47:06 +0200
-Subject: [PATCH] Fixed zoom mode based on
- https://github.com/Gottox/bgs/pull/10
-
----
- bgs.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
-
 diff --git a/bgs.c b/bgs.c
-index 7cc5716..f6de12c 100644
+index 90cf702..8c4eed5 100644
 --- a/bgs.c
 +++ b/bgs.c
-@@ -137,15 +137,15 @@ drawbg(void) {
+@@ -89,15 +89,17 @@ drawbg(void) {
  			ny = monitors[i].y + (monitors[i].h - nh) / 2;
  			break;
  		case ModeZoom:
@@ -27,6 +17,8 @@ index 7cc5716..f6de12c 100644
 +				ny = monitors[i].y;
  			}
  			else {
++				nw = monitors[i].w;
++				nh = nw * h / w;
  				ny = monitors[i].y + (monitors[i].h - nh) / 2;
 -				nx = monitors[i].x + (int)ceil(w * ny / h) / 2;
 +				nx = monitors[i].x;
