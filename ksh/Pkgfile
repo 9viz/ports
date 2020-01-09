@@ -1,20 +1,18 @@
-# Name: ksh
-# Description: portable OpenBSD ksh
-# Depends on: gcc
-# Optional: curses
-
-name=ksh
-version=6.6
+# Name: mksh
+# Depends on:
+# Description: MirBSD's Korn Shell
+name=mksh
+version=R57
 release=1
-source=(https://github.com/ibara/o${name}/archive/o${name}-${version}.tar.gz
-    01-change_profile_path.patch)
+source=(http://www.mirbsd.org/MirOS/dist/mir/$name/$name-$version.tgz)
 
 build() {
-    cd o${name}-o${name}-${version}
-    patch -p1 < ${SRC}/01-change_profile_path.patch
-    ./configure --enable-ksh            \
-                --prefix=/              \
-                --mandir=/usr/share/man
-    make
-    make DESTDIR=$PKG install
+    cd $name
+    for i in ${PKGMK_ROOT}/patches/*; do
+        patch -p1 < ${i}
+    done
+    sh ./Build.sh
+    mkdir -p $PKG/{bin,usr/share/man/man1}
+    install -m 555 mksh $PKG/bin/ksh
+    install -m 444 mksh.1 $PKG/usr/share/man/man1/ksh.1
 }
