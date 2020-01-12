@@ -7,19 +7,19 @@ version=1.13.5
 release=1
 source=(
 	https://dl.google.com/$name/$name$version.src.tar.gz
-	https://dl.google.com/$name/$name$version.linux-amd64.tar.gz
+	https://dl.google.com/$name/$name1.4.linux-amd64.tar.gz
 )
 
 unpack_source() {
 	install -d $SRC/go-bootstrap-$version
-	tar -xf $PKGMK_SOURCE_DIR/go$version.linux-amd64.tar.gz \
+	tar -xf $PKGMK_SOURCE_DIR/go1.4.linux-amd64.tar.gz \
 		-C $SRC/go-bootstrap-$version --strip-components 1
 	tar -xf $PKGMK_SOURCE_DIR/go$version.src.tar.gz \
 		-C $SRC
 }
 
 build() {
-	export GOROOT_BOOTSTRAP=$SRC/go-bootstrap-$version
+	export GOROOT_BOOTSTRAP=$SRC/go-bootstrap-1.4
 	export GOROOT_FINAL=/usr/lib/go
 	export GOOS=linux
 	export GOARCH=amd64
@@ -48,5 +48,5 @@ build() {
 	while read -r dir; do
 		rm -rf "$dir"
 	done
-	rm -r $PKG/usr/lib/go/doc
+	# rm -r $PKG/usr/lib/go/doc
 }
