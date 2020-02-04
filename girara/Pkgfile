@@ -1,16 +1,17 @@
 # Name: girara
 # Description: library to build minimalist UI
-# Depends on: gtk intltool
+# Depends on: glib gtk3 pango meson ninja
 
 name=girara
-version=0.1.9
+version=0.3.2
 release=1
 source=(https://github.com/pwmt/$name/archive/$version.tar.gz)
 
 build() {
 	cd $name-$version
-	sed -i 's/GIRARA_GTK_VERSION ?= 3/GIRARA_GTK_VERSION = 2/g' config.mk
-	make
-	make DESTDIR=$PKG install
+	meson --prefix /usr build
+	cd build
+	ninja -j ${JOBS}
+	DESTDIR=$PKG ninja install
 	rm -r $PKG/usr/share
 }

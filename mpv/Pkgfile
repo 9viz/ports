@@ -4,7 +4,7 @@
 # Optional Depends on: youtube-dl lua
 
 name=mpv
-version=0.29.1
+version=0.32.0
 release=1
 source=(https://github.com/$name-player/$name/archive/v$version.tar.gz)
 
