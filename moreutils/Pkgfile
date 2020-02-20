@@ -12,7 +12,7 @@ source=(https://git.kitenet.net/index.cgi/moreutils.git/snapshot/moreutils-$vers
 build() {
 	cd $name-$version
 	for i in $PKGMK_ROOT/patches/*; do
-		patch -p1 < $i
+		patch -p1 <$i
 	done
 	make
 	make DESTDIR=$PKG install

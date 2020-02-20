@@ -10,7 +10,7 @@ source=(https://github.com/Gottox/$name/archive/master.zip)
 build() {
     cd $name-master
     for i in $PKGMK_ROOT/patches/*; do
-        patch -p1 < $i
+        patch -p1 <$i
     done
     make
     make PREFIX=/usr DESTDIR=$PKG install

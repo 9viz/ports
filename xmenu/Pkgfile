@@ -14,7 +14,7 @@ build() {
 	cd xmenu
 	sed -i 's/-lxcb-xrm//' config.mk
 	for i in $PKGMK_ROOT/patches/*; do
-		patch -p1 < $i
+		patch -p1 <$i
 	done
 	make
 	make PREFIX=/usr DESTDIR=$PKG install

@@ -10,7 +10,7 @@ source=(https://mupdf.com/downloads/archive/$name-$version-source.tar.xz)
 build() {
     cd $name-$version-source
     for i in $PKGMK_ROOT/patches/*; do
-        patch -p1 < $i
+        patch -p1 <$i
     done
 
     export USE_SYSTEM_LIBS='yes'

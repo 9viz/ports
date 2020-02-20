@@ -15,7 +15,7 @@ build() {
                 --strip-binary  \
                 --enable-static \
                 --config-musl
-    patch -p1 < "${SRC}/remove-doc.patch"
+    patch -p1 <"${SRC}/remove-doc.patch"
     make
     make DESTDIR="${PKG}" install
 

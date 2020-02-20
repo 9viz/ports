@@ -10,7 +10,7 @@ source=(http://www.mirbsd.org/MirOS/dist/mir/m$name/$name-$version.tgz)
 build() {
     cd m$name
     for i in ${PKGMK_ROOT}/patches/*; do
-        patch -p1 < ${i}
+        patch -p1 <${i}
     done
     sh ./Build.sh
     mkdir -p $PKG/{bin,usr/share/man/man1}

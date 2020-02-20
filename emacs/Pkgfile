@@ -10,7 +10,7 @@ source=(http://mirrors.syringanetworks.net/gnu/$name/$name-$version.tar.xz)
 build() {
     cd $name-$version
     for i in $PKGMK_ROOT/patches/*; do
-        patch -p1 < $i
+        patch -p1 <$i
     done
 
     ./configure --prefix=/usr \

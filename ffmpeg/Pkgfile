@@ -14,7 +14,7 @@ build() {
 
     #https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-6621
     for i in $PKGMK_ROOT/patches/*; do
-        patch -p1 < $i
+        patch -p1 <$i
     done
 
     [ -e '/usr/lib/pkgconfig/ffnvcodec.pc' ] && PKGMK_FFMPEG+=' --enable-nvdec --enable-nvenc'
