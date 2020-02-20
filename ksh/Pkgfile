@@ -5,7 +5,7 @@
 name=ksh
 version=R57
 release=1
-source=(http://www.mirbsd.org/MirOS/dist/mir/m$name/$name-$version.tgz)
+source=(http://www.mirbsd.org/MirOS/dist/mir/m$name/m$name-$version.tgz)
 
 build() {
     cd m$name
